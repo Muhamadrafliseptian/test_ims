@@ -28,7 +28,7 @@ export class App extends Component {
 
   async getJatuhTempo() {
     try {
-      const response = await axios.post('https://7040-2400-9800-6032-cdf-b873-5ad0-1e75-7266.ngrok-free.app/query/jatuh_tempo')
+      const response = await axios.post('https://451c-2400-9800-6032-142-9500-11cc-e70e-a105.ngrok-free.app/query/jatuh_tempo')
       if (response.data.statusCode === 200) {
         console.log(response.data.data);
         this.setState({ dataJatuhTempo: response.data.data })
@@ -40,7 +40,7 @@ export class App extends Component {
 
   async getDenda() {
     try {
-      const response = await axios.post('https://7040-2400-9800-6032-cdf-b873-5ad0-1e75-7266.ngrok-free.app/query/denda')
+      const response = await axios.post('https://451c-2400-9800-6032-142-9500-11cc-e70e-a105.ngrok-free.app/query/denda')
       if (response.data.statusCode === 200) {
         console.log(response.data.data);
         this.setState({ dataDenda: response.data.data })
@@ -73,7 +73,7 @@ export class App extends Component {
     this.setState({ error: '' });
 
     try {
-      const response = await axios.post('https://7040-2400-9800-6032-cdf-b873-5ad0-1e75-7266.ngrok-free.app/credit/calculate', postData);
+      const response = await axios.post('https://451c-2400-9800-6032-142-9500-11cc-e70e-a105.ngrok-free.app/credit/calculate', postData);
 
       const { monthlyPayment, downPayment } = response.data.data;
 
