@@ -75,9 +75,13 @@ export class App extends Component {
     try {
       const response = await axios.post('https://451c-2400-9800-6032-142-9500-11cc-e70e-a105.ngrok-free.app/credit/calculate', postData);
 
-      const { monthlyPayment, downPayment } = response.data.data;
 
-      this.setState({ monthlyPayment, downPayment });
+      if(response.data.statusCode === 200){
+        const { monthlyPayment, downPayment } = response.data.data;
+        this.setState({ monthlyPayment, downPayment });
+      } else {
+        alert(response.data.message)
+      }
     } catch (error) {
       this.setState({ error: 'Terjadi kesalahan, coba lagi nanti.' });
     }
